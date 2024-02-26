@@ -12,12 +12,12 @@ const AppHeader = ({ onSearch, hasUnreadNotification }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const loggedIn = localStorage.getItem('isLoggedIn'); 
+    const loggedIn = localStorage.getItem('isLoggedIn');
     const role = localStorage.getItem('userRole');
     if (loggedIn === 'true' && role) {
       setIsLoggedIn(true);
       setUserRole(role);
-    } 
+    }
   }, []);
 
   const handleLogin = () => {
@@ -53,14 +53,15 @@ const AppHeader = ({ onSearch, hasUnreadNotification }) => {
     }
   };
 
+
+
   const handleLogoClick = () => {
     // Handle logo click
-    navigate('/');
-    window.location.reload();
+    window.location.href = '/';
   };
 
   const menu = (
-    <Menu>
+    <Menu onClick={handleMenuClick}>
       <Menu.Item key="home" onClick={handleMenuClick}>Trang chủ</Menu.Item>
       <Menu.Item key="about" onClick={handleMenuClick}>About us</Menu.Item>
       <Menu.Item key="search" onClick={handleMenuClick}>Tra cứu</Menu.Item>
@@ -99,7 +100,10 @@ const AppHeader = ({ onSearch, hasUnreadNotification }) => {
         <Badge dot={hasUnreadNotification} style={{ marginRight: '20px' }}>
           <BellOutlined style={{ fontSize: '20px', marginRight: '20px' }} />
         </Badge>
-        <Dropdown overlay={menu} trigger={['click']}>
+        <Dropdown overlay={menu}
+          placement="topRight"
+          trigger={['hover']}
+        >
           <Button type="text" icon={<MenuOutlined />} style={{ marginRight: '20px' }} />
         </Dropdown>
         {isLoggedIn ? (

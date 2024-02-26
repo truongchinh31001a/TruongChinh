@@ -6,27 +6,31 @@ import Background from '../Components/Content/open';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppHeader from '../Components/Header/Header';
 import AppFooter from '../Components/Footer/Footer';
+import SimpleBar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
 
 const { Sider } = Layout;
 
 const Home = () => {
   return (
     <Router>
-      <Layout className="layout" style={{ overflow: 'auto' }}> {/* Thêm style overflow: auto vào đây */}
-        <AppHeader />
-        <Background image={['slider_3.png']} />
-        <Layout>
-          <Sider width={120} style={{ background: '#fff' }}>
-            {/* Sidebar bên trái */}
-          </Sider>
-          <ContentComponent />
-          <Sider width={120} style={{ background: '#fff' }}>
-            {/* Sidebar bên phải */}
-          </Sider>
+      <SimpleBar autoHide={true} style={{ overflow: 'auto' }}>
+        <Layout className="layout">
+          <AppHeader />
+          <Background image={['slider_3.png']} />
+          <Layout>
+            <Sider width={120} style={{ background: '#fff' }}>
+              {/* Sidebar bên trái */}
+            </Sider>
+            <ContentComponent />
+            <Sider width={120} style={{ background: '#fff' }}>
+              {/* Sidebar bên phải */}
+            </Sider>
+          </Layout>
+          <EmailSubscription />
+          <AppFooter />
         </Layout>
-        <EmailSubscription />
-        <AppFooter />
-      </Layout>
+      </SimpleBar>
     </Router>
   );
 }
