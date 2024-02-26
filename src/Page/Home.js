@@ -9,12 +9,10 @@ import AppFooter from '../Components/Footer/Footer';
 
 const { Sider } = Layout;
 
-
 const Home = () => {
-
   return (
     <Router>
-      <Layout className="layout">
+      <Layout className="layout" style={{ overflow: 'auto' }}> {/* Thêm style overflow: auto vào đây */}
         <AppHeader />
         <Background image={['slider_3.png']} />
         <Layout>
