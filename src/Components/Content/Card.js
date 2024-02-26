@@ -8,15 +8,15 @@ const CustomCard = ({ item }) => {
     return (
         <Card
             hoverable
-            style={{ width: 350, height: 450 }}
-            cover={<img alt={item.name} src={item.imageUrl} style={{ width: 350, height: 250, marginTop: 1 }} />}
+            style={{ width: 320, height: 450 }}
+            cover={<img alt={item.name} src={item.imageUrl} style={{ width: 320, height: 210, marginTop: 1 }} />}
         >
-            <div style={{ height: 200 }}>
+            <div style={{ height: 240 }}>
                 <Meta
                     title={item.name}
                     description={item.description}
                 />
-                <div style={{ marginTop: '15px' }}>
+                <div style={{ marginTop: '30px' }}>
                     <Avatar size="small" icon={<EnvironmentOutlined />} />
                     <span style={{ marginLeft: '5px' }}> địa điểm{item.address}</span>
                 </div>
